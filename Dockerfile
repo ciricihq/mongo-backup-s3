@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 # Install Python
 RUN apt-get update && \
-    apt-get -y install python python-pip
+    apt-get -y install python python-pip wget
 
 # Install AWS CLI and schedule package
 RUN pip install awscli schedule
