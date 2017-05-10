@@ -14,6 +14,10 @@ RUN echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiver
 RUN apt-get update && \
     apt-get install -y mongodb-org-tools
 
+RUN wget -O /tmp/envconsul.zip https://releases.hashicorp.com/envconsul/0.6.2/envconsul_0.6.2_linux_amd64.zip
+RUN unzip /tmp/envconsul.zip -d /tmp
+RUN mv /tmp/envconsul /usr/bin/envconsul
+
 # Add scripts
 ADD backup.sh /app/backup.sh
 ADD run.py /app/run.py
@@ -27,4 +31,4 @@ ENV DATE_FORMAT %Y%m%d-%H%M%S
 ENV FILE_PREFIX backup-
 
 # Run the schedule command on startup
-CMD ["python", "-u", "/app/run.py"]
+CMD ["consul-entrypoint.sh"]

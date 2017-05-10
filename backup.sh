@@ -21,7 +21,11 @@ rm -fr ${FOLDER} && mkdir -p ${FOLDER} && cd ${FOLDER}
 
 echo "Starting backup..."
 
-mongodump --host=${MONGO_HOST} --db=${MONGO_DB} --out=${DUMP_OUT}
+if [ -z ${MONGO_DB} ]; then
+    mongodump --host=${MONGO_HOST} --db=${MONGO_DB} --out=${DUMP_OUT}
+else
+    mongodump --host=${MONGO_HOST} --out=${DUMP_OUT}
+fi
 
 echo "Compressing backup..."
 
