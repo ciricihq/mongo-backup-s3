@@ -21,6 +21,7 @@ RUN mv /tmp/envconsul /usr/bin/envconsul
 # Add scripts
 ADD backup.sh /app/backup.sh
 ADD run.py /app/run.py
+ADD consul-entrypoint.sh /app/consul-entrypoint.sh
 RUN chmod +x /app/backup.sh
 RUN chmod +x /app/run.py
 
@@ -31,4 +32,4 @@ ENV DATE_FORMAT %Y%m%d-%H%M%S
 ENV FILE_PREFIX backup-
 
 # Run the schedule command on startup
-CMD ["consul-entrypoint.sh"]
+CMD ["/app/consul-entrypoint.sh"]
