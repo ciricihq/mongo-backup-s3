@@ -13,8 +13,8 @@ Name | Description | Default
 `MONGO_HOST` | MongoDB instance hostname | *Required*
 `MONGO_DB` | MongoDB database name | *Required*
 `S3_BUCKET` | Amazon S3 bucket name | *Required*
-`AWS_ACCESS_KEY_ID` | Amazon AWS access key | *Required*
-`AWS_SECRET_ACCESS_KEY` | Amazon AWS secret | *Required*
+`AWS_ACCESS_KEY` | Amazon AWS access key | *Required*
+`AWS_SECRET_KEY` | Amazon AWS secret | *Required*
 `BACKUP_INTERVAL` | Interval between each backup (days) | `1`
 `BACKUP_TIME` | Hour of the day at which the backup will be executed | `2:00`
 `DATE_FORMAT` | Date format string used as the suffix of the backup filename | `%Y%m%d-%H%M%S`
